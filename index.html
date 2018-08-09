@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <h1>Simple PWA</h1>
+    <hr>
+
+    <h2>Fetch Followers</h2>
+    <div>
+        <input type="text" id="usernameField" class="text" placeholder="enter username e.g: umartunes" value="umartunes">
+        <button id="fetchButton">Fetch Followers List</button>
+    </div>
+
+    <h2>Result</h2>
+    <div id="result"></div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
